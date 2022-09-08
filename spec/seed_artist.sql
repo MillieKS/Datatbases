@@ -1,4 +1,3 @@
-
 -- EXAMPLE
 -- (file: spec/seeds_{table_name}.sql)
 

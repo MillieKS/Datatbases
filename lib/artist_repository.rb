@@ -18,7 +18,7 @@ class ArtistRepository
   
           artists << artist
         end
-        return artists
+      return artists
   
       # Returns an array of Artist objects.
     end
