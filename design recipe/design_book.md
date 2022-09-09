@@ -198,9 +198,9 @@ book[2].id # =>  3
 book[2].name # =>  
 book[2].author_name # =>  
 
-book[3].id # =>  3
-book[3].name # =>  
-book[3].author_name # =>  
+# book[3].id # =>  3
+# book[3].name # =>  
+# book[3].author_name # =>  
 
 # 2
 # Get a single book
@@ -219,31 +219,31 @@ book[0].author_name # =>  'George Orwell'
 # create a book
 repo = BookRepository.new
 book = Book.new
-book.title = "Lady Gaga"
-book.author_name = "Pop"
+book.title = "The Power of Now"
+book.author_name = "Ekhart Toille"
 repo.create(book)
 result = repo.find(5)
-result.title # => "Lady Gaga"
-result.author_name # => "Pop"
+result.title # => "
+result.author_name # => "
 
 #4
 #update an artist
 repo = BookRepository.new
 book = repo.find(1)
-book.title = "Pop"
+book.title = "A New Earth"
 repo.update(book)
 result = repo.find(1)
-result.author_name # => "Pop"
+result.author_name # => "A New Earth"
 
 # 5
 # Delete an artist
 
 repo = BookRepository.new
-book = repo.find(4)
+book = repo.find(3)
 book.delete
 
 book = repo.all
-book.length # => 3
+book.length # => 2
 
 ```
 
