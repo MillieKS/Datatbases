@@ -1,5 +1,7 @@
 require 'artist'
 
+
+
 class ArtistRepository
 
     # Selecting all records
