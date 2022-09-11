@@ -9,7 +9,7 @@ class AlbumRepository
       # SELECT id, name, genre FROM artist;
       all = "SELECT * FROM albums;"
       result = DatabaseConnection.exec_params(all, [])
-      album = []
+      albums = []
         result.each do |x|
           album = Album.new
           album.id = x['id']
@@ -28,12 +28,13 @@ class AlbumRepository
     # One argument: the id (number)
     def find(id)
       # Executes the SQL query:
-      id = "SELECT * FROM artists WHERE id = #{id};"
+      id = "SELECT * FROM albums WHERE id = #{id};"
       result = DatabaseConnection.exec_params(id, [])
       album = Album.new
       album.id = result[0]['id']
       album.title = result[0]['title']
       album.release_year = result[0]['release_year']
+      album.artist_id = result[0]['artist_id']
 
   
       return album
@@ -43,12 +44,12 @@ class AlbumRepository
     # Add more methods below for each operation you'd like to implement.
   
     def create(album)
-      create = "INSERT INTO albums ( title, release_year) VALUES('#{album.title}', '#{album.release_year}');"
+      create = "INSERT INTO albums ( title, release_year, artist_id) VALUES('#{album.title}', '#{album.release_year}', #{album.artist_id});"
       result = DatabaseConnection.exec_params(create, [])
     end
   
     def update(album)
-      update = "UPDATE albums SET name = '#{album.title}' WHERE id = '#{album.id}';"
+      update = "UPDATE albums SET title = '#{album.title}' WHERE id = #{album.id};"
       result = DatabaseConnection.exec_params(update, [])
     end
   
